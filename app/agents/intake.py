@@ -29,23 +29,48 @@ def get_question(qid: str) -> Optional[dict]:
     return next((q for q in QUESTIONS if q["id"] == qid), None)
 
 
+SKIPPED_KEY = "_skipped"
+
+
+def skipped_fields(profile: dict) -> set[str]:
+    """Fields the user explicitly declined to answer ('skip', 'rehne do')."""
+    return set(profile.get(SKIPPED_KEY) or [])
+
+
+def mark_skipped(profile: dict, field: str) -> None:
+    profile.setdefault(SKIPPED_KEY, [])
+    if field not in profile[SKIPPED_KEY]:
+        profile[SKIPPED_KEY].append(field)
+
+
+def unmark_skipped(profile: dict, field: str) -> None:
+    if field in (profile.get(SKIPPED_KEY) or []):
+        profile[SKIPPED_KEY].remove(field)
+
+
 def next_question(profile: dict) -> Optional[dict]:
     """First question (in order) that applies to this profile and is unanswered."""
+    skipped = skipped_fields(profile)
     for q in QUESTIONS:
         ask_if = q.get("ask_if")
         if ask_if and not ask_if(profile):
             continue
         field = q.get("field", q["id"])
+        if field in skipped:
+            continue
         if profile.get(field) is None:
             return q
     return None
 
 
 def pending_question_ids(profile: dict) -> list[str]:
+    skipped = skipped_fields(profile)
     return [
         (q.get("field", q["id"]))
         for q in QUESTIONS
-        if (not q.get("ask_if") or q["ask_if"](profile)) and profile.get(q.get("field", q["id"])) is None
+        if (not q.get("ask_if") or q["ask_if"](profile))
+        and q.get("field", q["id"]) not in skipped
+        and profile.get(q.get("field", q["id"])) is None
     ]
 
 
@@ -247,14 +272,36 @@ def parse_answer(q: dict, text: str, profile: Optional[dict] = None) -> tuple[bo
         opt = _match_option(q, t, profile)
         if opt:
             return True, opt["value"]
-        # Hindi free-text guesses for a few common cases
+        # Free-text guesses — Devanagari AND romanized Hinglish, because people
+        # type "kisan" / "gaon" far more often than they tap the exact chip.
         guesses = {
             "पुरुष": "male", "महिला": "female", "आदमी": "male", "औरत": "female",
             "गाँव": "rural", "गांव": "rural", "शहर": "urban", "किसान": "farmer",
-            "छात्र": "student", "व्यापार": "business", "नौकरी": "employee",
+            "छात्र": "student", "छात्रा": "student", "व्यापार": "business",
+            "व्यवसाय": "business", "नौकरी": "employee", "गृहिणी": "homemaker",
+            "कारीगर": "artisan", "दुकानदार": "self_employed", "बेरोजगार": "unemployed",
+            "बेरोज़गार": "unemployed", "सामान्य": "general", "अन्य": "other",
+            "mard": "male", "aadmi": "male", "admi": "male", "purush": "male",
+            "aurat": "female", "mahila": "female", "ladki": "female", "stri": "female",
+            "gaon": "rural", "gaanv": "rural", "gram": "rural", "village": "rural",
+            "sheher": "urban", "shehar": "urban", "shahar": "urban", "city": "urban",
+            "town": "urban", "nagar": "urban",
+            "kisan": "farmer", "keesan": "farmer", "khet": "farmer", "kheti": "farmer",
+            "chhatra": "student", "chatra": "student", "padhai": "student",
+            "vyapar": "business", "vyavsay": "business", "vyavasay": "business",
+            "dukaan": "self_employed", "dukan": "self_employed", "dukandar": "self_employed",
+            "naukri": "employee", "naukari": "employee", "job": "employee",
+            "grihini": "homemaker", "housewife": "homemaker", "ghar": "homemaker",
+            "kaarigar": "artisan", "karigar": "artisan",
+            "berojgar": "unemployed", "berozgar": "unemployed",
+            "general": "general", "samanya": "general",
         }
         if t in guesses:
-            return True, guesses[t]
+            guess = guesses[t]
+            # only accept a guess this question can actually store
+            valid = {str(o["value"]) for o in visible_options(q, profile)}
+            if guess in valid:
+                return True, guess
         return False, None
 
     if qtype == "yesno":

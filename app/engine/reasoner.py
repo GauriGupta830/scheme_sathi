@@ -12,6 +12,7 @@ Everything the UI renders comes from here as structured JSON.
 
 from __future__ import annotations
 
+from .documents import checklist_summary
 from .matcher import match_all_schemes
 from .near_miss import near_miss_analysis, failed_reasons_summary
 from .ranker import rank_matches
@@ -139,7 +140,7 @@ def build_report(profile: dict) -> dict:
         profile, len(eligible_cards), len(near_cards), eligible_cards
     )
 
-    return {
+    report = {
         "profile": profile,
         "summary_en": summary_en,
         "summary_hi": summary_hi,
@@ -152,3 +153,8 @@ def build_report(profile: dict) -> dict:
         "near_miss": near_cards,
         "not_eligible": not_eligible,
     }
+
+    # KEY FEATURE 7 — one consolidated required-documents checklist across all
+    # matched schemes (per-scheme lists still live on each card).
+    report["documents_checklist"] = checklist_summary(report)
+    return report

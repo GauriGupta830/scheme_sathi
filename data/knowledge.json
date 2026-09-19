@@ -1,0 +1,236 @@
+[
+  {
+    "id": "bpl",
+    "topic_en": "BPL / Below Poverty Line",
+    "topic_hi": "बीपीएल / गरीबी रेखा से नीचे",
+    "keywords": ["bpl", "below poverty line", "garibi rekha", "गरीबी रेखा", "बीपीएल", "apl", "antyodaya", "antodaya", "अंत्योदय", "secc", "ration card", "राशन कार्ड", "rashan card", "yellow card", "pink card"],
+    "answer_en": "BPL means 'Below Poverty Line' — a government list of the poorest families. The easiest way to check: look at your RATION CARD. If it says BPL, Antyodaya (AAY) or Priority Household (PHH), you are in the list. White/APL cards are above the line.\nIf you are not sure, your Gram Panchayat, ward office or nearest CSC centre can check the SECC-2011 list against your name for free.\nWhy it matters: Ayushman Bharat (₹5 lakh free treatment), Ujjwala gas connection and PM Awas housing use this list. If you genuinely cannot tell, answer No — I will simply skip BPL-only schemes instead of showing you something wrong.",
+    "answer_hi": "BPL का मतलब है 'गरीबी रेखा से नीचे' — सबसे गरीब परिवारों की सरकारी सूची। जाँचने का सबसे आसान तरीका: अपना राशन कार्ड देखिए। अगर उस पर BPL, अंत्योदय (AAY) या प्राथमिकता परिवार (PHH) लिखा है, तो आप सूची में हैं। सफेद/APL कार्ड गरीबी रेखा से ऊपर होता है।\nपक्का पता न हो तो आपकी ग्राम पंचायत, वार्ड कार्यालय या नज़दीकी CSC केंद्र SECC-2011 सूची में आपका नाम मुफ्त में जाँच सकता है।\nयह क्यों ज़रूरी है: आयुष्मान भारत (₹5 लाख मुफ्त इलाज), उज्ज्वला गैस कनेक्शन और पीएम आवास इसी सूची से चलते हैं। अगर सच में पता न चले तो 'नहीं' कहिए — मैं BPL-वाली योजनाएँ छोड़ दूँगा, गलत जानकारी नहीं दूँगा।",
+    "schemes": ["pmjay", "ujjwala", "pmay_gramin"]
+  },
+  {
+    "id": "no_aadhaar",
+    "topic_en": "I don't have an Aadhaar card",
+    "topic_hi": "मेरे पास आधार कार्ड नहीं है",
+    "keywords": ["aadhaar nahi", "aadhar nahi", "adhar nahi", "no aadhaar", "without aadhaar", "aadhaar card nahi hai", "aadhar kaise banaye", "aadhaar kaise banwaye", "आधार नहीं", "आधार कैसे", "आधार कार्ड नहीं", "uidai", "aadhaar banwana", "aadhaar card banana"],
+    "answer_en": "No Aadhaar? It can be made free of cost, and it usually takes 15–30 days.\nHow: go to any Aadhaar Seva Kendra, CSC centre, post office or bank enrolment counter. Carry any ONE identity proof (voter ID, PAN, passport, school certificate) and any ONE address proof (ration card, electricity bill, bank passbook). If you have nothing, a Gram Panchayat Sarpanch / MLA / gazetted officer certificate works as an introducer. Your photo, fingerprints and iris scan are taken on the spot and you get an enrolment slip (EID) immediately.\nMeanwhile: the 14-digit EID number on that slip is accepted by many schemes as proof that enrolment is in progress, and you can download the e-Aadhaar from uidai.gov.in as soon as it is generated.\nImportant: almost every scheme here needs Aadhaar for DBT (money straight into your bank account), so this is the single most useful document to get first.",
+    "answer_hi": "आधार नहीं है? यह बिल्कुल मुफ्त बनता है और आम तौर पर 15–30 दिन लगते हैं।\nकैसे: किसी भी आधार सेवा केंद्र, CSC केंद्र, डाकघर या बैंक के नामांकन काउंटर पर जाइए। कोई एक पहचान प्रमाण (वोटर आईडी, पैन, पासपोर्ट, स्कूल प्रमाणपत्र) और कोई एक पता प्रमाण (राशन कार्ड, बिजली बिल, बैंक पासबुक) ले जाइए। कुछ भी न हो तो ग्राम पंचायत सरपंच / विधायक / राजपत्रित अधिकारी का प्रमाणपत्र परिचयकर्ता के रूप में चलता है। फोटो, उंगलियों के निशान और आँख का स्कैन वहीं होता है और तुरंत नामांकन पर्ची (EID) मिल जाती है।\nतब तक: उस पर्ची का 14 अंकों का EID नंबर कई योजनाएँ 'नामांकन चल रहा है' के प्रमाण के तौर पर मानती हैं, और बनते ही uidai.gov.in से e-आधार डाउनलोड कर सकते हैं।\nज़रूरी बात: यहाँ की लगभग हर योजना में DBT (पैसा सीधे बैंक खाते में) के लिए आधार चाहिए, इसलिए सबसे पहले यही बनवाना सबसे उपयोगी है।",
+    "schemes": ["jandhan"]
+  },
+  {
+    "id": "no_bank_account",
+    "topic_en": "I don't have a bank account",
+    "topic_hi": "मेरे पास बैंक खाता नहीं है",
+    "keywords": ["bank account nahi", "khata nahi", "bank khata", "no bank account", "jan dhan", "jandhan", "zero balance", "बैंक खाता नहीं", "खाता कैसे", "जन धन", "बैंक खाता कैसे खुलवाये", "account kaise khole"],
+    "answer_en": "No bank account is never a dead end — PM Jan Dhan Yojana gives you a ZERO-balance account, free.\nHow: walk into any bank branch or Bank Mitra / Business Correspondent in your village with your Aadhaar. No minimum balance is required, you get a free RuPay debit card with ₹2 lakh accident cover, and the account can be opened the same day.\nWhy it matters so much: once you have an account, a whole chain of schemes opens up — Jeevan Jyoti life insurance (₹436/year), Suraksha Bima accident cover (₹20/year), Atal Pension, and every DBT payment (PM-KISAN, scholarships, subsidies) which can ONLY be paid into a bank account.\nIf you already had an account but it is dormant, just visit the branch with Aadhaar and re-KYC it — that is faster than opening a new one.",
+    "answer_hi": "बैंक खाता न होना कभी रुकावट नहीं — पीएम जन धन योजना में ज़ीरो-बैलेंस खाता मुफ्त खुलता है।\nकैसे: अपने आधार के साथ किसी भी बैंक शाखा या गाँव के बैंक मित्र / बिज़नेस कॉरेस्पोंडेंट के पास जाइए। कोई न्यूनतम बैलेंस नहीं चाहिए, ₹2 लाख दुर्घटना कवर वाला मुफ्त RuPay डेबिट कार्ड मिलता है, और खाता उसी दिन खुल सकता है।\nयह इतना ज़रूरी क्यों है: खाता खुलते ही योजनाओं की पूरी कड़ी खुल जाती है — जीवन ज्योति जीवन बीमा (₹436/साल), सुरक्षा बीमा दुर्घटना कवर (₹20/साल), अटल पेंशन, और हर DBT भुगतान (पीएम-किसान, छात्रवृत्ति, सब्सिडी) जो सिर्फ बैंक खाते में ही आ सकता है।\nखाता पहले से है पर बंद पड़ा है? आधार लेकर शाखा जाइए और फिर से KYC करा लीजिए — नया खोलने से तेज़ पड़ेगा।",
+    "schemes": ["jandhan", "pmjjby", "pmsby", "apy"]
+  },
+  {
+    "id": "caste_certificate",
+    "topic_en": "Caste certificate (SC/ST/OBC)",
+    "topic_hi": "जाति प्रमाण पत्र (एससी/एसटी/ओबीसी)",
+    "keywords": ["caste certificate", "jati praman", "jaati praman patra", "जाति प्रमाण", "caste proof", "obc certificate", "sc certificate", "st certificate", "non creamy layer", "creamy layer", "जाति प्रमाणपत्र"],
+    "answer_en": "A caste certificate proves you belong to SC, ST or OBC and is issued by the Tehsildar / SDM office — or online through your state e-District portal.\nWhat to carry: Aadhaar, ration card, a relative's old caste certificate (father/grandfather) if any, and a self-declaration. It is usually free or costs ₹30–₹50, and takes 7–21 days.\nOBC applicants also need a Non-Creamy-Layer (NCL) certificate, which shows family income is under ₹8 lakh a year — it is valid for one financial year and has to be renewed.\nWhy it matters: Post-Matric scholarships, Stand-Up India (SC/ST entrepreneur loan of ₹10 lakh–₹1 crore) and extra PMEGP subsidy all depend on it.",
+    "answer_hi": "जाति प्रमाण पत्र यह साबित करता है कि आप SC, ST या OBC वर्ग से हैं, और यह तहसीलदार / SDM कार्यालय से — या अपने राज्य के e-District पोर्टल से ऑनलाइन — बनता है।\nक्या ले जाएँ: आधार, राशन कार्ड, परिवार का पुराना जाति प्रमाण पत्र (पिता/दादा का) यदि हो, और स्व-घोषणा पत्र। आम तौर पर मुफ्त या ₹30–₹50 लगते हैं, और 7–21 दिन में बन जाता है।\nOBC वालों को नॉन-क्रीमी-लेयर (NCL) प्रमाण पत्र भी चाहिए, जो दिखाता है कि पारिवारिक आय ₹8 लाख सालाना से कम है — यह एक वित्तीय वर्ष के लिए मान्य होता है और हर साल नवीनीकरण कराना पड़ता है।\nयह क्यों ज़रूरी है: पोस्ट-मैट्रिक छात्रवृत्ति, स्टैंड-अप इंडिया (SC/ST उद्यमी लोन ₹10 लाख–₹1 करोड़) और PMEGP की अतिरिक्त सब्सिडी — सब इसी पर निर्भर हैं।",
+    "schemes": ["postmatric_sc", "postmatric_obc", "stand_up_india", "pmegp"]
+  },
+  {
+    "id": "income_certificate",
+    "topic_en": "Income certificate",
+    "topic_hi": "आय प्रमाण पत्र",
+    "keywords": ["income certificate", "aay praman", "आय प्रमाण", "income proof", "salary certificate", "आय प्रमाणपत्र", "income kaise sabit", "aamdani praman"],
+    "answer_en": "An income certificate states your family's total yearly income and is issued by the Tehsildar / SDM, or online via your state e-District portal (many states issue it in 3–7 days).\nWhat to carry: Aadhaar, ration card, a salary slip or self-declaration of income, and sometimes a Patwari/Gram Pradhan report. Cost is usually ₹10–₹50.\nTip: it is normally valid for ONE financial year, so if yours is older than a year, get it renewed before applying for scholarships or housing schemes — a stale certificate is the single most common reason applications are rejected.",
+    "answer_hi": "आय प्रमाण पत्र आपके परिवार की कुल सालाना आय बताता है और तहसीलदार / SDM से, या राज्य के e-District पोर्टल से ऑनलाइन बनता है (कई राज्यों में 3–7 दिन में)।\nक्या ले जाएँ: आधार, राशन कार्ड, वेतन पर्ची या आय का स्व-घोषणा पत्र, और कहीं-कहीं पटवारी/ग्राम प्रधान की रिपोर्ट। खर्च आम तौर पर ₹10–₹50।\nसुझाव: यह आम तौर पर एक वित्तीय वर्ष के लिए मान्य होता है, इसलिए साल से पुराना हो तो छात्रवृत्ति या आवास योजना में आवेदन से पहले नया बनवा लीजिए — पुराना प्रमाण पत्र आवेदन रद्द होने की सबसे आम वजह है।",
+    "schemes": ["nsp", "postmatric_obc", "pmay_urban"]
+  },
+  {
+    "id": "land_records",
+    "topic_en": "Land records / Khatauni / Khasra",
+    "topic_hi": "भूमि रिकॉर्ड / खतौनी / खसरा",
+    "keywords": ["khatauni", "khasra", "land record", "jamin kagaz", "zameen ke kagaz", "खतौनी", "खसरा", "भूमि रिकॉर्ड", "bhulekh", "7/12", "satbara", "patta", "land papers", "girdawari"],
+    "answer_en": "Land records (Khatauni / Khasra / 7-12 extract / RoR) prove the land is in your name. Download them free from your state's land portal — UP: upbhulekh.gov.in, MP: mpbhulekh.gov.in, Maharashtra: bhulekh.mahabhumi.gov.in — or get a certified copy from the Patwari / Tehsil office for ₹10–₹30.\nIf the land is still in your father's or grandfather's name, apply for 'Namantaran' (mutation) at the Tehsil — until that is done, PM-KISAN and crop insurance in your own name can be held up.\nTenant farmer or sharecropper with no land in your name? You are not shut out: crop insurance (PMFBY) accepts a sharecropper agreement, and states like Odisha (KALIA), Telangana and Andhra run income-support schemes specifically for landless cultivators.",
+    "answer_hi": "भूमि रिकॉर्ड (खतौनी / खसरा / 7-12 / RoR) साबित करते हैं कि ज़मीन आपके नाम है। इन्हें अपने राज्य के भू-अभिलेख पोर्टल से मुफ्त डाउनलोड करें — यूपी: upbhulekh.gov.in, एमपी: mpbhulekh.gov.in, महाराष्ट्र: bhulekh.mahabhumi.gov.in — या पटवारी / तहसील कार्यालय से ₹10–₹30 में प्रमाणित प्रति लें।\nअगर ज़मीन अब भी पिता या दादा के नाम है, तो तहसील में 'नामांतरण' (म्यूटेशन) के लिए आवेदन कीजिए — जब तक यह न हो, अपने नाम पर पीएम-किसान और फसल बीमा अटक सकते हैं।\nबटाईदार या किरायेदार किसान हैं और ज़मीन अपने नाम नहीं? रास्ता बंद नहीं है: फसल बीमा (PMFBY) बटाई अनुबंध मानता है, और ओडिशा (कालिया), तेलंगाना, आंध्र जैसे राज्य भूमिहीन किसानों के लिए अलग आय-सहायता योजनाएँ चलाते हैं।",
+    "schemes": ["pm_kisan", "pmfby", "pm_kusum"]
+  },
+  {
+    "id": "how_to_apply",
+    "topic_en": "How do I actually apply?",
+    "topic_hi": "आवेदन असल में कैसे करूँ?",
+    "keywords": ["how to apply", "kaise apply", "apply kaise", "avedan kaise", "आवेदन कैसे", "कैसे आवेदन", "form kaise bhare", "form bharna", "application kaise", "kahan jana hai", "कहाँ जाना", "online kaise"],
+    "answer_en": "Every scheme in your report has an official apply link on its card — but you have three practical routes:\n1. Online yourself — open the portal link, register with your mobile + Aadhaar OTP, fill the form and upload scanned documents. Free.\n2. CSC / Jan Seva Kendra — the most common route in villages. The operator fills the form for you; government-fixed charges are small (₹20–₹100). Insist on a receipt and your application number.\n3. The department office — Gram Panchayat / Block office for housing and rural schemes, bank branch for loan schemes (MUDRA, Stand-Up India, PMEGP), school or college office for scholarships.\nAlways note down your application / reference number — that is how you track the status later. And no genuine scheme ever asks for a bribe or a 'commission'.",
+    "answer_hi": "आपकी रिपोर्ट में हर योजना के कार्ड पर आधिकारिक आवेदन लिंक है — पर व्यावहारिक रूप से तीन रास्ते हैं:\n1. खुद ऑनलाइन — पोर्टल लिंक खोलिए, मोबाइल + आधार OTP से रजिस्टर कीजिए, फॉर्म भरिए और दस्तावेज़ अपलोड कीजिए। मुफ्त।\n2. CSC / जन सेवा केंद्र — गाँवों में सबसे आम रास्ता। ऑपरेटर आपका फॉर्म भर देता है; सरकारी तय शुल्क बहुत कम (₹20–₹100) है। रसीद और आवेदन नंबर ज़रूर लीजिए।\n3. विभाग का कार्यालय — आवास व ग्रामीण योजनाओं के लिए ग्राम पंचायत / ब्लॉक कार्यालय, लोन योजनाओं (मुद्रा, स्टैंड-अप इंडिया, PMEGP) के लिए बैंक शाखा, छात्रवृत्ति के लिए स्कूल/कॉलेज कार्यालय।\nअपना आवेदन / संदर्भ नंबर हमेशा लिख लीजिए — बाद में स्थिति इसी से पता चलती है। और कोई भी असली योजना कभी रिश्वत या 'कमीशन' नहीं माँगती।",
+    "schemes": []
+  },
+  {
+    "id": "csc_centre",
+    "topic_en": "What is a CSC / Jan Seva Kendra?",
+    "topic_hi": "CSC / जन सेवा केंद्र क्या है?",
+    "keywords": ["csc", "jan seva kendra", "common service centre", "जन सेवा केंद्र", "csc kya hai", "csc kahan", "e-mitra", "emitra", "lokmitra", "cyber cafe"],
+    "answer_en": "A CSC (Common Service Centre), also called Jan Seva Kendra or e-Mitra in some states, is a government-authorised computer kiosk in almost every panchayat. The operator can fill scheme applications, print Aadhaar, apply for certificates, do Jan Dhan KYC and check SECC/BPL lists for you.\nFind the nearest one at locator.csccloud.in, or simply ask at the Gram Panchayat office — most villages have one within 2–3 km.\nCharges are fixed by the government and are small (₹20–₹100 per service). Ask for the rate list if someone quotes more, and always collect the printed acknowledgement.",
+    "answer_hi": "CSC (कॉमन सर्विस सेंटर), जिसे कई राज्यों में जन सेवा केंद्र या e-मित्र भी कहते हैं, लगभग हर पंचायत में मौजूद सरकार-अधिकृत कंप्यूटर केंद्र है। ऑपरेटर योजना के फॉर्म भर सकता है, आधार प्रिंट कर सकता है, प्रमाण पत्रों के लिए आवेदन कर सकता है, जन धन KYC कर सकता है और SECC/BPL सूची जाँच सकता है।\nनज़दीकी केंद्र locator.csccloud.in पर मिलेगा, या बस ग्राम पंचायत कार्यालय में पूछ लीजिए — ज़्यादातर गाँवों में 2–3 किमी के भीतर होता है।\nशुल्क सरकार तय करती है और कम होता है (₹20–₹100 प्रति सेवा)। कोई ज़्यादा माँगे तो रेट लिस्ट माँगिए, और प्रिंटेड रसीद हमेशा लीजिए।",
+    "schemes": []
+  },
+  {
+    "id": "documents_general",
+    "topic_en": "Which documents will I need?",
+    "topic_hi": "मुझे कौन-कौन से दस्तावेज़ चाहिए?",
+    "keywords": ["documents", "document", "kagaz", "kagzat", "papers", "दस्तावेज़", "कागज़", "कागजात", "document chahiye", "kya kya chahiye", "kya document", "checklist", "kagaz kaun se"],
+    "answer_en": "For almost every scheme the core set is the same four: Aadhaar card, a bank passbook (account in your own name), a passport-size photo, and a mobile number linked to Aadhaar.\nOn top of that, only what the specific scheme needs: land records for farmer schemes, income + caste certificate for scholarships, ration card for BPL-linked schemes, a project report for business loans, and a school/college bonafide for student schemes.\nOnce your report is ready I build a single combined checklist for you — every document, which schemes need it, and how to get the ones you are missing. Just ask me for 'documents' at any time.",
+    "answer_hi": "लगभग हर योजना के लिए मूल चार दस्तावेज़ एक जैसे हैं: आधार कार्ड, बैंक पासबुक (खाता आपके अपने नाम पर), पासपोर्ट साइज़ फोटो, और आधार से जुड़ा मोबाइल नंबर।\nइसके ऊपर सिर्फ वही जो उस योजना के लिए ज़रूरी है: किसान योजनाओं के लिए भूमि रिकॉर्ड, छात्रवृत्ति के लिए आय + जाति प्रमाण पत्र, BPL-वाली योजनाओं के लिए राशन कार्ड, व्यापार लोन के लिए प्रोजेक्ट रिपोर्ट, और छात्र योजनाओं के लिए स्कूल/कॉलेज का बोनाफाइड।\nरिपोर्ट बनते ही मैं आपके लिए एक संयुक्त चेकलिस्ट बनाता हूँ — हर दस्तावेज़, किन योजनाओं में लगेगा, और जो नहीं है उसे कैसे बनवाएँ। कभी भी 'दस्तावेज़' पूछ लीजिए।",
+    "schemes": []
+  },
+  {
+    "id": "is_it_free",
+    "topic_en": "Is this free? Do I need an agent?",
+    "topic_hi": "क्या यह मुफ्त है? क्या एजेंट चाहिए?",
+    "keywords": ["free hai", "kitna kharcha", "paisa lagega", "charge", "fees", "agent", "dalal", "commission", "rishwat", "bribe", "मुफ्त", "खर्चा", "दलाल", "एजेंट", "फीस", "रिश्वत", "is it free", "dalal paisa", "paisa mangta", "paise mangta", "commission mangta", "dalal chahiye", "agent chahiye", "middleman", "bicholiya", "बिचौलिया", "घूस", "ghus", "kharcha aayega", "cost kitna", "koi fees"],
+    "answer_en": "Applying for every scheme here is FREE on the official portals. You never need an agent or a middleman.\nThe only legitimate costs are tiny: CSC service charges (₹20–₹100), certificate fees at the Tehsil (₹10–₹50), photocopies and photos. Loan schemes have no application fee either — a bank may charge a small processing fee only after sanction, and under CGTMSE no collateral is required.\nIf anyone demands a commission, promises 'guaranteed approval' or asks for your OTP, that is a scam. Report it on the scheme portal's grievance section or call the National Helpline 1800-11-1555.",
+    "answer_hi": "यहाँ की हर योजना का आवेदन आधिकारिक पोर्टल पर मुफ्त है। किसी एजेंट या बिचौलिये की कभी ज़रूरत नहीं।\nजो थोड़े-बहुत जायज़ खर्च हैं वे मामूली हैं: CSC सेवा शुल्क (₹20–₹100), तहसील में प्रमाण पत्र शुल्क (₹10–₹50), फोटोकॉपी और फोटो। लोन योजनाओं में भी आवेदन शुल्क नहीं होता — बैंक स्वीकृति के बाद ही छोटा प्रोसेसिंग शुल्क ले सकता है, और CGTMSE के तहत कोई गारंटी/गिरवी नहीं चाहिए।\nकोई कमीशन माँगे, 'पक्की मंज़ूरी' का वादा करे या आपका OTP माँगे — तो वह धोखा है। योजना पोर्टल के शिकायत सेक्शन में रिपोर्ट कीजिए या राष्ट्रीय हेल्पलाइन 1800-11-1555 पर कॉल कीजिए।",
+    "schemes": []
+  },
+  {
+    "id": "privacy",
+    "topic_en": "Is my data safe?",
+    "topic_hi": "क्या मेरी जानकारी सुरक्षित है?",
+    "keywords": ["data safe", "privacy", "surakshit", "जानकारी सुरक्षित", "save karte ho", "store", "personal data", "गोपनीय", "safe hai", "kisi ko batate"],
+    "answer_en": "Your answers stay in the browser session only — nothing is written to a database, nothing is shared with any department, and the whole session is wiped when you close it or press 'New session'.\nI also never ask for your Aadhaar number, bank account number, OTP or any password — I only need rough details like age, occupation and income range to check eligibility rules.\nWhen you actually apply, you will enter those private numbers directly on the official government portal, not here.",
+    "answer_hi": "आपके जवाब सिर्फ इसी ब्राउज़र सेशन में रहते हैं — किसी डेटाबेस में नहीं लिखे जाते, किसी विभाग से साझा नहीं होते, और सेशन बंद करते ही या 'नया सत्र' दबाते ही सब मिट जाता है।\nमैं आपका आधार नंबर, बैंक खाता नंबर, OTP या कोई पासवर्ड कभी नहीं पूछता — पात्रता जाँचने के लिए मुझे बस मोटी जानकारी चाहिए जैसे उम्र, पेशा और आय की रेंज।\nजब आप असल में आवेदन करेंगे, तब वे निजी नंबर सीधे सरकारी पोर्टल पर डालेंगे, यहाँ नहीं।",
+    "schemes": []
+  },
+  {
+    "id": "ration_card",
+    "topic_en": "Ration card — how to get or correct it",
+    "topic_hi": "राशन कार्ड — कैसे बनवाएँ या सुधारें",
+    "keywords": ["ration card kaise", "rashan card", "राशन कार्ड कैसे", "new ration card", "ration card nahi", "nfsa", "food security", "ration card correction", "naam jodna"],
+    "answer_en": "Apply for a ration card at your state Food & Civil Supplies portal (for example fcs.up.gov.in, rationmitra.nic.in) or at the CSC / Block Supply Office.\nWhat you need: Aadhaar of every family member, a passport photo of the head of the family, proof of residence and an income declaration. It takes roughly 15–30 days and the fee is ₹5–₹45.\nTo add a name (new baby, new bride) or correct a spelling, use the 'Correction / Add member' form on the same portal — you do not need a fresh card.\nIt matters beyond food grain: the ration card is the main proof used for BPL status in Ayushman Bharat, Ujjwala and PM Awas.",
+    "answer_hi": "राशन कार्ड के लिए अपने राज्य के खाद्य एवं रसद पोर्टल (जैसे fcs.up.gov.in, rationmitra.nic.in) पर या CSC / ब्लॉक आपूर्ति कार्यालय में आवेदन कीजिए।\nक्या चाहिए: परिवार के हर सदस्य का आधार, मुखिया की पासपोर्ट फोटो, निवास प्रमाण और आय घोषणा। लगभग 15–30 दिन लगते हैं और शुल्क ₹5–₹45 होता है।\nनाम जोड़ना हो (नया बच्चा, नई बहू) या वर्तनी सुधारनी हो, तो उसी पोर्टल पर 'सुधार / सदस्य जोड़ें' फॉर्म भरिए — नया कार्ड बनवाने की ज़रूरत नहीं।\nयह सिर्फ अनाज के लिए नहीं है: आयुष्मान भारत, उज्ज्वला और पीएम आवास में BPL साबित करने का मुख्य प्रमाण यही राशन कार्ड है।",
+    "schemes": ["pmjay", "ujjwala", "pmay_gramin"]
+  },
+  {
+    "id": "dbt_seeding",
+    "topic_en": "Money not received / DBT & Aadhaar seeding",
+    "topic_hi": "पैसा नहीं आया / DBT और आधार सीडिंग",
+    "keywords": ["paisa nahi aaya", "dbt", "aadhaar seeding", "npci", "payment nahi", "kisht nahi aayi", "installment", "पैसा नहीं आया", "किस्त नहीं", "डीबीटी", "seeding", "link nahi"],
+    "answer_en": "If a scheme is approved but money has not arrived, 9 times out of 10 the bank account is not 'Aadhaar-seeded' with NPCI.\nFix it: take your Aadhaar and passbook to the bank branch and ask for 'Aadhaar seeding / NPCI mapping' of the account. It is free and takes a day or two. Check the current status at myaadhaar.uidai.gov.in → Bank Seeding Status.\nOther common reasons: the name on Aadhaar does not match the name in the bank, KYC has expired, the account is dormant, or e-KYC for that specific scheme is pending (for PM-KISAN, do e-KYC at pmkisan.gov.in).\nYou can track a payment at pfms.nic.in using your account number or application number.",
+    "answer_hi": "योजना स्वीकृत है पर पैसा नहीं आया — तो 10 में से 9 बार वजह यह होती है कि बैंक खाता NPCI से 'आधार सीडेड' नहीं है।\nठीक कैसे करें: आधार और पासबुक लेकर बैंक शाखा जाइए और खाते की 'आधार सीडिंग / NPCI मैपिंग' कराइए। यह मुफ्त है और एक-दो दिन लगते हैं। मौजूदा स्थिति myaadhaar.uidai.gov.in → Bank Seeding Status पर देखिए।\nदूसरी आम वजहें: आधार का नाम बैंक के नाम से मेल नहीं खाता, KYC समाप्त हो गई, खाता निष्क्रिय है, या उस योजना की e-KYC बाकी है (पीएम-किसान के लिए pmkisan.gov.in पर e-KYC कीजिए)।\nभुगतान की स्थिति pfms.nic.in पर खाता नंबर या आवेदन नंबर से ट्रैक कर सकते हैं।",
+    "schemes": ["pm_kisan"]
+  },
+  {
+    "id": "business_loan_basics",
+    "topic_en": "Business loans — MUDRA, PMEGP, Stand-Up India",
+    "topic_hi": "व्यापार लोन — मुद्रा, PMEGP, स्टैंड-अप इंडिया",
+    "keywords": ["loan chahiye", "business loan", "mudra", "pmegp", "stand up india", "dukan kholna", "vyapar shuru", "लोन चाहिए", "व्यापार लोन", "मुद्रा", "दुकान खोलनी", "business kaise shuru", "startup loan", "collateral", "guarantee"],
+    "answer_en": "There are three main routes for a new business, and they stack differently:\n• MUDRA — collateral-free loan up to ₹10 lakh (Shishu ₹50k, Kishore ₹5L, Tarun ₹10L). Apply at any bank or on udyamimitra.in. Best first stop for a small shop, dairy, tailoring or repair business.\n• PMEGP — a loan WITH a government subsidy of 15–35% of the project cost (higher for rural, women, SC/ST). You need to be 8th pass for projects above ₹10 lakh (manufacturing) and contribute 5–10% yourself. Apply at kviconline.gov.in.\n• Stand-Up India — ₹10 lakh to ₹1 crore, but only for women or SC/ST entrepreneurs setting up a new (greenfield) unit.\nCGTMSE sits on top of these: it guarantees the bank on your behalf, which is why you are not asked for property as collateral. Keep a simple project report ready — cost, machinery, expected sales — it is the document banks actually read.",
+    "answer_hi": "नए व्यापार के लिए तीन मुख्य रास्ते हैं, और तीनों अलग तरह से काम आते हैं:\n• मुद्रा — ₹10 लाख तक बिना गारंटी लोन (शिशु ₹50 हज़ार, किशोर ₹5 लाख, तरुण ₹10 लाख)। किसी भी बैंक या udyamimitra.in पर आवेदन। छोटी दुकान, डेयरी, सिलाई या रिपेयर के लिए सबसे पहला ठिकाना।\n• PMEGP — लोन के साथ सरकारी सब्सिडी, प्रोजेक्ट लागत का 15–35% (ग्रामीण, महिला, SC/ST को ज़्यादा)। ₹10 लाख से बड़े (विनिर्माण) प्रोजेक्ट के लिए 8वीं पास होना ज़रूरी है और 5–10% अपना अंशदान देना होता है। आवेदन kviconline.gov.in पर।\n• स्टैंड-अप इंडिया — ₹10 लाख से ₹1 करोड़, पर सिर्फ महिला या SC/ST उद्यमियों को, नई (ग्रीनफील्ड) इकाई के लिए।\nCGTMSE इन सबके ऊपर काम करता है: यह आपकी तरफ से बैंक को गारंटी देता है, इसीलिए आपसे ज़मीन-मकान गिरवी नहीं माँगा जाता। एक सादी प्रोजेक्ट रिपोर्ट तैयार रखिए — लागत, मशीन, अनुमानित बिक्री — बैंक असल में यही पढ़ता है।",
+    "schemes": ["mudra", "pmegp", "stand_up_india", "cgtmse"]
+  },
+  {
+    "id": "scholarship_basics",
+    "topic_en": "Scholarships — NSP and state portals",
+    "topic_hi": "छात्रवृत्ति — NSP और राज्य पोर्टल",
+    "keywords": ["scholarship", "chhatravritti", "छात्रवृत्ति", "nsp", "scholarship kaise", "padhai ke liye paisa", "college fees", "student paisa", "fees ke liye", "scholarship portal", "post matric"],
+    "answer_en": "The National Scholarship Portal (scholarships.gov.in) is the single window for most central scholarships — Pre-Matric, Post-Matric, Merit-cum-Means and more. One registration covers many schemes.\nThe window usually opens around July–August and closes by October–November, and it is strict: a missed date means waiting a whole year.\nKeep ready: Aadhaar, bank passbook in the STUDENT's name, last year's marksheet, a bonafide certificate from the institution, income certificate and (if applicable) caste certificate. Your institution must verify your application online after you submit — many scholarships fail at exactly this step, so follow up with the college clerk.\nAlso check your state portal separately (e.g. MP's scholarshipportal.mp.nic.in, UP's scholarship.up.gov.in) — state scholarships are a second, parallel source of money.",
+    "answer_hi": "नेशनल स्कॉलरशिप पोर्टल (scholarships.gov.in) ज़्यादातर केंद्रीय छात्रवृत्तियों की एक ही खिड़की है — प्री-मैट्रिक, पोस्ट-मैट्रिक, मेरिट-कम-मीन्स और बहुत कुछ। एक रजिस्ट्रेशन से कई योजनाएँ कवर हो जाती हैं।\nआवेदन आम तौर पर जुलाई–अगस्त में खुलते हैं और अक्टूबर–नवंबर तक बंद हो जाते हैं, और तारीख में सख्ती होती है — तारीख निकली तो पूरा साल इंतज़ार।\nतैयार रखें: आधार, छात्र के अपने नाम की बैंक पासबुक, पिछले साल की मार्कशीट, संस्थान का बोनाफाइड प्रमाण पत्र, आय प्रमाण पत्र और (यदि लागू हो) जाति प्रमाण पत्र। आवेदन के बाद संस्थान को उसे ऑनलाइन सत्यापित करना होता है — कई छात्रवृत्तियाँ ठीक यहीं अटकती हैं, इसलिए कॉलेज क्लर्क से फॉलो-अप करते रहिए।\nअपने राज्य का पोर्टल भी अलग से देखिए (जैसे एमपी: scholarshipportal.mp.nic.in, यूपी: scholarship.up.gov.in) — राज्य छात्रवृत्ति पैसे का दूसरा समानांतर ज़रिया है।",
+    "schemes": ["nsp", "postmatric_sc", "postmatric_obc"]
+  },
+  {
+    "id": "housing_basics",
+    "topic_en": "Housing — PM Awas Yojana",
+    "topic_hi": "आवास — पीएम आवास योजना",
+    "keywords": ["ghar", "makan", "awas", "housing", "pmay", "घर", "मकान", "आवास", "ghar ke liye", "makan banane", "pakka ghar", "home loan subsidy", "clss"],
+    "answer_en": "PM Awas Yojana has two separate arms and you apply to only one:\n• Gramin (rural) — ₹1.20 lakh in the plains, ₹1.30 lakh in hilly areas, paid in instalments, plus ₹12,000 for a toilet and about 90 days of MGNREGA wages. You must be on the SECC/Awaas+ list; check with the Gram Panchayat, not a website.\n• Urban — mainly an interest subsidy (CLSS) of up to ₹2.67 lakh on a home loan, applied at pmaymis.gov.in or through your bank.\nThe hard rule for both: no member of the family may already own a pucca house anywhere in India, and the house must be registered in the name of a woman of the family (or jointly).\nIf your income is just above the ceiling, check the LIG/MIG slabs — the urban scheme covers incomes up to ₹18 lakh in the MIG category.",
+    "answer_hi": "पीएम आवास योजना की दो अलग शाखाएँ हैं और आवेदन किसी एक में ही होता है:\n• ग्रामीण — मैदानी क्षेत्र में ₹1.20 लाख, पहाड़ी में ₹1.30 लाख, किस्तों में, साथ में शौचालय के ₹12,000 और लगभग 90 दिन की मनरेगा मज़दूरी। SECC/आवास+ सूची में नाम होना ज़रूरी है; यह ग्राम पंचायत से पता कीजिए, वेबसाइट से नहीं।\n• शहरी — मुख्य रूप से होम लोन पर ब्याज सब्सिडी (CLSS), ₹2.67 लाख तक, आवेदन pmaymis.gov.in पर या अपने बैंक से।\nदोनों की सख्त शर्त: परिवार के किसी भी सदस्य के पास भारत में कहीं भी पहले से पक्का मकान नहीं होना चाहिए, और मकान परिवार की महिला के नाम (या संयुक्त नाम) दर्ज होना चाहिए।\nआय सीमा से थोड़ी ही ऊपर है? LIG/MIG श्रेणियाँ देखिए — शहरी योजना MIG श्रेणी में ₹18 लाख तक की आय को कवर करती है।",
+    "schemes": ["pmay_gramin", "pmay_urban"]
+  },
+  {
+    "id": "health_insurance",
+    "topic_en": "Health cover — Ayushman Bharat",
+    "topic_hi": "स्वास्थ्य कवर — आयुष्मान भारत",
+    "keywords": ["ayushman", "pmjay", "health insurance", "ilaj", "hospital", "bimari", "आयुष्मान", "इलाज", "अस्पताल", "स्वास्थ्य बीमा", "golden card", "5 lakh", "operation ka kharcha"],
+    "answer_en": "Ayushman Bharat PM-JAY gives ₹5 lakh of free hospital treatment per family per year, cashless, at any empanelled government or private hospital in India.\nCheck if your family is already in the list at beneficiary.nha.gov.in with just your mobile number and Aadhaar — many families are listed and simply never knew. If you are, get the Ayushman card made free at the hospital's Ayushman Mitra desk or a CSC.\nIt covers hospitalisation (surgery, delivery, dialysis, cancer care), 3 days before and 15 days after admission, including medicines and tests. OPD visits are not covered.\nNot in the SECC list? Several states run their own parallel cover — Maharashtra MJPJAY, Delhi Arogya Kosh, Rajasthan Chiranjeevi — worth checking with your district hospital.",
+    "answer_hi": "आयुष्मान भारत पीएम-जेएवाय हर परिवार को हर साल ₹5 लाख तक का मुफ्त अस्पताल इलाज देता है — कैशलेस, भारत के किसी भी सूचीबद्ध सरकारी या निजी अस्पताल में।\nअपने परिवार का नाम सूची में है या नहीं, यह beneficiary.nha.gov.in पर सिर्फ मोबाइल नंबर और आधार से जाँचिए — बहुत से परिवार सूची में होते हैं पर जानते ही नहीं। नाम हो तो अस्पताल के आयुष्मान मित्र डेस्क या CSC से आयुष्मान कार्ड मुफ्त बनवा लीजिए।\nइसमें अस्पताल में भर्ती (ऑपरेशन, प्रसव, डायलिसिस, कैंसर इलाज), भर्ती से 3 दिन पहले और 15 दिन बाद तक की दवाइयाँ व जाँचें शामिल हैं। सामान्य OPD इसमें नहीं आती।\nSECC सूची में नाम नहीं? कई राज्यों की अपनी समानांतर योजनाएँ हैं — महाराष्ट्र MJPJAY, दिल्ली आरोग्य कोष, राजस्थान चिरंजीवी — ज़िला अस्पताल में पूछना फायदेमंद रहेगा।",
+    "schemes": ["pmjay"]
+  },
+  {
+    "id": "pension_insurance",
+    "topic_en": "Pension & cheap insurance (APY, PMJJBY, PMSBY)",
+    "topic_hi": "पेंशन और सस्ता बीमा (APY, PMJJBY, PMSBY)",
+    "keywords": ["pension", "पेंशन", "apy", "atal pension", "budhape", "old age", "insurance", "bima", "बीमा", "jeevan jyoti", "suraksha bima", "life insurance", "accident cover"],
+    "answer_en": "Three tiny-premium schemes that every bank account holder should switch on — the whole set costs under ₹500 a year:\n• PM Jeevan Jyoti Bima — ₹2 lakh life cover for ₹436/year, age 18–50.\n• PM Suraksha Bima — ₹2 lakh accident cover for just ₹20/year, age 18–70.\n• Atal Pension Yojana — a guaranteed monthly pension of ₹1,000–₹5,000 after age 60; you must join between 18 and 40, and the earlier you start the smaller the contribution.\nAll three are enabled at your bank branch (or in the net-banking app) with a one-page form and auto-debit consent — you do not need a separate agent.\nIf you don't have a bank account yet, open a Jan Dhan account first; these three become available the same day.",
+    "answer_hi": "तीन बेहद सस्ती योजनाएँ जो हर बैंक खाताधारक को चालू करा लेनी चाहिए — तीनों मिलाकर साल भर का खर्च ₹500 से भी कम:\n• पीएम जीवन ज्योति बीमा — ₹436/साल में ₹2 लाख का जीवन बीमा, आयु 18–50।\n• पीएम सुरक्षा बीमा — सिर्फ ₹20/साल में ₹2 लाख का दुर्घटना कवर, आयु 18–70।\n• अटल पेंशन योजना — 60 की उम्र के बाद ₹1,000–₹5,000 मासिक गारंटीड पेंशन; जुड़ना 18 से 40 की उम्र के बीच होता है, और जितनी जल्दी शुरू करें उतना कम अंशदान।\nतीनों अपनी बैंक शाखा में (या नेट-बैंकिंग ऐप में) एक पन्ने का फॉर्म और ऑटो-डेबिट सहमति देकर चालू हो जाती हैं — अलग एजेंट की ज़रूरत नहीं।\nबैंक खाता नहीं है तो पहले जन धन खाता खुलवाइए; ये तीनों उसी दिन उपलब्ध हो जाती हैं।",
+    "schemes": ["apy", "pmjjby", "pmsby", "jandhan"]
+  },
+  {
+    "id": "farmer_basics",
+    "topic_en": "Farmer schemes — PM-KISAN, crop insurance, solar pump",
+    "topic_hi": "किसान योजनाएँ — पीएम-किसान, फसल बीमा, सोलर पंप",
+    "keywords": ["pm kisan", "kisan", "farmer", "kheti", "fasal", "crop", "किसान", "खेती", "फसल", "fasal bima", "kusum", "solar pump", "kcc", "kisan credit card", "6000"],
+    "answer_en": "The core farmer stack:\n• PM-KISAN — ₹6,000 a year in three instalments of ₹2,000, straight to your bank account. Register at pmkisan.gov.in or a CSC with your land record and Aadhaar; e-KYC is mandatory every year, otherwise instalments stop.\n• PM Fasal Bima — crop insurance at a farmer premium of just 2% (kharif), 1.5% (rabi) or 5% (horticulture). Enrol through your bank/CSC BEFORE the cut-off date of each season, and report any crop loss within 72 hours on the Crop Insurance app.\n• PM-KUSUM — 60% subsidy on a solar irrigation pump; the state agriculture/energy department opens application windows periodically.\nAlso ask your bank for a Kisan Credit Card — it gives crop loans at 4% effective interest if repaid on time, and that is usually the cheapest money a farmer can get.",
+    "answer_hi": "किसान की मुख्य योजनाएँ:\n• पीएम-किसान — साल में ₹6,000, ₹2,000 की तीन किस्तों में, सीधे बैंक खाते में। pmkisan.gov.in या CSC पर भूमि रिकॉर्ड और आधार से रजिस्टर कीजिए; e-KYC हर साल अनिवार्य है, वरना किस्तें रुक जाती हैं।\n• पीएम फसल बीमा — फसल बीमा, किसान का प्रीमियम सिर्फ 2% (खरीफ), 1.5% (रबी) या 5% (बागवानी)। हर सीज़न की अंतिम तारीख से पहले बैंक/CSC से नामांकन कराइए, और फसल नुकसान होने पर 72 घंटे के भीतर क्रॉप इंश्योरेंस ऐप पर सूचना दीजिए।\n• पीएम-कुसुम — सोलर सिंचाई पंप पर 60% सब्सिडी; राज्य का कृषि/ऊर्जा विभाग समय-समय पर आवेदन खोलता है।\nबैंक से किसान क्रेडिट कार्ड भी ज़रूर माँगिए — समय पर चुकाने पर 4% प्रभावी ब्याज पर फसल ऋण मिलता है, जो किसान के लिए सबसे सस्ता पैसा है।",
+    "schemes": ["pm_kisan", "pmfby", "pm_kusum"]
+  },
+  {
+    "id": "women_schemes",
+    "topic_en": "Schemes for women",
+    "topic_hi": "महिलाओं के लिए योजनाएँ",
+    "keywords": ["mahila", "women", "aurat", "महिला", "औरत", "ladies", "beti", "बेटी", "girl child", "shg", "self help group", "स्वयं सहायता", "ujjwala", "matru vandana", "sukanya", "pregnancy", "garbhvati"],
+    "answer_en": "Women-specific support runs across several schemes:\n• Sukanya Samriddhi — a savings account for a daughter under 10, currently about 8.2% interest, tax free; open it at any post office or bank with ₹250.\n• PM Matru Vandana — ₹5,000 for the first living child (₹6,000 for a second girl child) during pregnancy and after delivery.\n• Ujjwala — a free LPG connection with the first refill and stove, for women in BPL households.\n• DAY-NRLM Self-Help Groups — a rural women's group can get a ₹15,000 revolving fund and bank loans at about 7% interest; ask your Gram Panchayat or the Block Mission Management Unit for the nearest SHG.\n• Stand-Up India — ₹10 lakh to ₹1 crore for a woman starting a new business, with no collateral through CGTMSE.\nMost of these need only Aadhaar, a bank account in the woman's own name, and the relevant certificate.",
+    "answer_hi": "महिलाओं के लिए सहायता कई योजनाओं में फैली है:\n• सुकन्या समृद्धि — 10 साल से छोटी बेटी के लिए बचत खाता, अभी लगभग 8.2% ब्याज, कर-मुक्त; किसी भी डाकघर या बैंक में ₹250 से खुल जाता है।\n• पीएम मातृ वंदना — पहले जीवित बच्चे पर ₹5,000 (दूसरी संतान बेटी हो तो ₹6,000), गर्भावस्था और प्रसव के बाद।\n• उज्ज्वला — BPL परिवार की महिलाओं को मुफ्त गैस कनेक्शन, पहली रीफिल और चूल्हे के साथ।\n• DAY-NRLM स्वयं सहायता समूह — ग्रामीण महिला समूह को ₹15,000 का रिवॉल्विंग फंड और लगभग 7% ब्याज पर बैंक लोन मिलता है; नज़दीकी SHG के लिए ग्राम पंचायत या ब्लॉक मिशन कार्यालय में पूछिए।\n• स्टैंड-अप इंडिया — नया व्यवसाय शुरू करने वाली महिला को ₹10 लाख से ₹1 करोड़ तक, CGTMSE के ज़रिए बिना गिरवी।\nइनमें ज़्यादातर के लिए सिर्फ आधार, महिला के अपने नाम का बैंक खाता और संबंधित प्रमाण पत्र चाहिए।",
+    "schemes": ["ssy", "pmmvy", "ujjwala", "nrlm", "stand_up_india"]
+  },
+  {
+    "id": "no_documents_at_all",
+    "topic_en": "I have almost no documents",
+    "topic_hi": "मेरे पास लगभग कोई दस्तावेज़ नहीं है",
+    "keywords": ["koi document nahi", "kuch nahi hai", "no documents", "documents nahi hai", "कोई दस्तावेज़ नहीं", "कुछ नहीं है", "nothing", "kagaz nahi hai", "id nahi"],
+    "answer_en": "Start with just two, in this order — everything else follows from them:\n1. Aadhaar — free at any Aadhaar Seva Kendra. If you have no ID at all, a Gram Panchayat Sarpanch, MLA or gazetted officer can sign an introducer certificate for you.\n2. Jan Dhan bank account — zero balance, opened with that Aadhaar at any bank or Bank Mitra.\nWith those two alone you can already access PM-JAY health cover (if your family is SECC-listed), Jan Dhan's accident cover, and both ₹20/₹436 insurance schemes.\nThen add, as you need them: ration card (for BPL proof), income and caste certificates from the Tehsil, and land records from the Patwari.\nA CSC operator can start all of these for you in one visit — take whatever old papers you do have, even a school certificate or an electricity bill.",
+    "answer_hi": "सिर्फ दो से शुरू कीजिए, इसी क्रम में — बाकी सब इन्हीं से बनता है:\n1. आधार — किसी भी आधार सेवा केंद्र पर मुफ्त। कोई भी पहचान पत्र न हो तो ग्राम पंचायत सरपंच, विधायक या राजपत्रित अधिकारी परिचयकर्ता प्रमाणपत्र पर हस्ताक्षर कर सकते हैं।\n2. जन धन बैंक खाता — ज़ीरो बैलेंस, उसी आधार से किसी भी बैंक या बैंक मित्र के पास खुल जाएगा।\nसिर्फ इन दो से ही आप पीएम-जेएवाय स्वास्थ्य कवर (यदि परिवार SECC सूची में है), जन धन का दुर्घटना कवर, और ₹20/₹436 वाली दोनों बीमा योजनाएँ ले सकते हैं।\nफिर ज़रूरत के हिसाब से जोड़िए: राशन कार्ड (BPL प्रमाण के लिए), तहसील से आय और जाति प्रमाण पत्र, और पटवारी से भूमि रिकॉर्ड।\nCSC ऑपरेटर एक ही विज़िट में इन सबकी शुरुआत कर सकता है — जो भी पुराने कागज़ हों साथ ले जाइए, चाहे स्कूल का प्रमाणपत्र या बिजली का बिल ही क्यों न हो।",
+    "schemes": ["jandhan", "pmjay"]
+  },
+  {
+    "id": "eligibility_doubt",
+    "topic_en": "Am I really eligible? Will it be rejected?",
+    "topic_hi": "क्या मैं सच में पात्र हूँ? आवेदन रद्द तो नहीं होगा?",
+    "keywords": ["sach me milega", "reject", "rejection", "pakka hai", "guarantee", "मिलेगा क्या", "रद्द", "pakka milega", "sure hai", "confirm", "will i get"],
+    "answer_en": "My report tells you which rules you satisfy — it is an honest pre-check, not a final sanction. The department verifies your documents and makes the actual decision.\nThat said, a matched scheme means the published eligibility criteria fit your profile, so your chances are genuinely good. Applications usually fail for avoidable reasons: an expired income certificate, a name mismatch between Aadhaar and the bank, missing e-KYC, or applying after the deadline.\nSo: keep documents current and consistent, apply through the official portal, and note your application number. If it is rejected, every portal has a grievance link — rejections are often reversed once the missing paper is supplied.",
+    "answer_hi": "मेरी रिपोर्ट बताती है कि आप कौन-कौन से नियम पूरे करते हैं — यह एक ईमानदार पूर्व-जाँच है, अंतिम मंज़ूरी नहीं। दस्तावेज़ों की जाँच और असली फैसला विभाग करता है।\nफिर भी, कोई योजना मैच होने का मतलब है कि घोषित पात्रता शर्तें आपकी प्रोफ़ाइल से मेल खाती हैं, इसलिए संभावना सचमुच अच्छी है। आवेदन आम तौर पर टाली जा सकने वाली वजहों से रुकते हैं: पुरानी आय प्रमाण पत्र, आधार और बैंक के नाम में अंतर, e-KYC बाकी होना, या अंतिम तारीख के बाद आवेदन।\nइसलिए: दस्तावेज़ ताज़ा और एक-जैसे रखिए, आधिकारिक पोर्टल से ही आवेदन कीजिए, और आवेदन नंबर नोट कर लीजिए। रद्द हो जाए तो हर पोर्टल पर शिकायत का लिंक होता है — कमी पूरी करने पर कई बार फैसला बदल जाता है।",
+    "schemes": []
+  },
+  {
+    "id": "state_schemes",
+    "topic_en": "What about my state's own schemes?",
+    "topic_hi": "मेरे राज्य की अपनी योजनाओं का क्या?",
+    "keywords": ["state scheme", "rajya ki yojana", "राज्य की योजना", "mp ki yojana", "up ki yojana", "ladli", "state government", "apne rajya", "local scheme"],
+    "answer_en": "I currently check 25 CENTRAL schemes. Your state almost certainly runs its own on top — for example Ladli Behna (MP), Kanya Sumangala (UP), Mahatma Jyotiba Phule health cover (Maharashtra) or Chiranjeevi (Rajasthan).\nThe best single place to look is myscheme.gov.in — filter by your state and category, and it shows eligibility in plain language.\nAlso ask at the Gram Panchayat / ward office and at the CSC: state schemes are often announced locally and never make it to a website in time. Getting the central schemes in place first usually makes the state ones easier, since the documents are the same.",
+    "answer_hi": "मैं अभी 25 केंद्रीय योजनाएँ जाँचता हूँ। आपका राज्य लगभग निश्चित रूप से इनके ऊपर अपनी योजनाएँ भी चलाता है — जैसे लाडली बहना (एमपी), कन्या सुमंगला (यूपी), महात्मा ज्योतिबा फुले स्वास्थ्य कवर (महाराष्ट्र) या चिरंजीवी (राजस्थान)।\nदेखने की सबसे अच्छी जगह है myscheme.gov.in — अपने राज्य और श्रेणी से छाँटिए, वहाँ पात्रता सरल भाषा में लिखी मिलेगी।\nग्राम पंचायत / वार्ड कार्यालय और CSC पर भी पूछिए: राज्य योजनाओं की घोषणा अक्सर स्थानीय स्तर पर होती है और वेबसाइट पर समय से नहीं आती। पहले केंद्रीय योजनाएँ करा लेने से राज्य वाली आसान हो जाती हैं, क्योंकि दस्तावेज़ वही रहते हैं।",
+    "schemes": []
+  },
+  {
+    "id": "why_questions",
+    "topic_en": "Why are you asking me all this?",
+    "topic_hi": "आप यह सब क्यों पूछ रहे हैं?",
+    "keywords": ["kyu puch rahe", "why asking", "क्यों पूछ", "itne sawal", "so many questions", "kitne sawal", "personal kyu", "zaroori hai kya", "kitni der"],
+    "answer_en": "Because eligibility rules are literally written in terms of these facts. Age decides pension and insurance entry, occupation decides whether farmer or business schemes apply, income and BPL status decide scholarships, health cover and housing, and category decides reservation-linked schemes.\nI only ask what is needed — a farmer never sees business questions and a student never sees land questions, so it is usually 8–11 short questions, most of them a single tap.\nAnd you can be approximate: ranges are fine for income and age. I never ask for Aadhaar numbers, account numbers or OTPs.",
+    "answer_hi": "क्योंकि पात्रता के नियम सचमुच इन्हीं बातों पर लिखे होते हैं। उम्र से पेंशन और बीमा में प्रवेश तय होता है, पेशे से तय होता है कि किसान योजनाएँ लगेंगी या व्यापार योजनाएँ, आय और BPL स्थिति से छात्रवृत्ति, स्वास्थ्य कवर और आवास, और वर्ग से आरक्षण-संबंधी योजनाएँ।\nमैं सिर्फ ज़रूरी सवाल पूछता हूँ — किसान को व्यापार के सवाल नहीं दिखते और छात्र को ज़मीन के, इसलिए आम तौर पर 8–11 छोटे सवाल ही होते हैं, ज़्यादातर एक टैप में।\nऔर अंदाज़ा भी चलेगा: आय और उम्र में रेंज बिल्कुल ठीक है। आधार नंबर, खाता नंबर या OTP मैं कभी नहीं पूछता।",
+    "schemes": []
+  },
+  {
+    "id": "unemployed_help",
+    "topic_en": "I have no job / no income",
+    "topic_hi": "मेरे पास नौकरी नहीं / कोई आमदनी नहीं",
+    "keywords": ["berojgar", "बेरोजगार", "unemployed", "no job", "naukri nahi", "kaam nahi", "job chahiye", "rojgar", "रोजगार", "training", "skill", "kaam dhundh"],
+    "answer_en": "Without a job, three routes are worth taking together:\n• Skill training — DDU-GKY gives free residential training plus placement support for rural youth aged 15–35; PMKVY does the same in short modules. Both are free and give a certificate that employers recognise.\n• Self-employment — a MUDRA Shishu loan (up to ₹50,000, no collateral) is designed exactly for someone starting a tiny business, and PMEGP adds a 15–35% subsidy on top.\n• MGNREGA — if you are in a rural household, a job card guarantees 100 days of paid work a year; apply at the Gram Panchayat, it takes about 15 days.\nMeanwhile register on eshram.gov.in (free, for unorganised workers) — it gives you a UAN, ₹2 lakh accident cover, and puts you on the list for future welfare payouts.",
+    "answer_hi": "नौकरी न होने पर तीनों रास्ते साथ-साथ आज़माने लायक हैं:\n• कौशल प्रशिक्षण — DDU-GKY ग्रामीण युवाओं (15–35 वर्ष) को मुफ्त आवासीय प्रशिक्षण और नौकरी में मदद देता है; PMKVY छोटे कोर्स में यही करता है। दोनों मुफ्त हैं और ऐसा प्रमाणपत्र देते हैं जिसे कंपनियाँ मानती हैं।\n• स्वरोज़गार — मुद्रा शिशु लोन (₹50,000 तक, बिना गारंटी) ठीक ऐसे ही छोटे धंधे की शुरुआत के लिए बना है, और PMEGP उस पर 15–35% सब्सिडी जोड़ देता है।\n• मनरेगा — ग्रामीण परिवार हैं तो जॉब कार्ड साल में 100 दिन के मज़दूरी वाले काम की गारंटी देता है; ग्राम पंचायत में आवेदन कीजिए, लगभग 15 दिन लगते हैं।\nसाथ ही eshram.gov.in पर रजिस्टर कीजिए (मुफ्त, असंगठित श्रमिकों के लिए) — इससे UAN नंबर, ₹2 लाख दुर्घटना कवर मिलता है और आगे की कल्याण योजनाओं की सूची में नाम आ जाता है।",
+    "schemes": ["ddu_gky", "mudra", "pmegp"]
+  },
+  {
+    "id": "change_answer",
+    "topic_en": "I gave a wrong answer / want to change it",
+    "topic_hi": "मैंने गलत जवाब दे दिया / बदलना है",
+    "keywords": ["galat", "गलत", "change answer", "badalna", "बदलना", "wrong answer", "correct karna", "sudharna", "fir se", "dobara", "edit", "mistake", "galti"],
+    "answer_en": "No problem — just tell me what to change in plain words, like 'my income is actually 2 lakh' or 'I am a farmer, not a student', and I will update that answer and redo the matching.\nIf you would rather start completely fresh, press 'New session' in the sidebar — nothing is saved, so there is no harm in redoing it.\nAnd if you notice a mistake only after the report appears, you can still correct it the same way; I will rebuild the report with the corrected profile.",
+    "answer_hi": "कोई बात नहीं — बस सादे शब्दों में बता दीजिए कि क्या बदलना है, जैसे 'मेरी आय असल में 2 लाख है' या 'मैं किसान हूँ, छात्र नहीं', और मैं वह जवाब बदलकर दोबारा मिलान कर दूँगा।\nबिल्कुल नए सिरे से शुरू करना हो तो साइडबार में 'नया सत्र' दबा दीजिए — कुछ भी सहेजा नहीं जाता, इसलिए दोबारा करने में कोई नुकसान नहीं।\nऔर अगर गलती रिपोर्ट आने के बाद पता चले, तब भी उसी तरह सुधार सकते हैं; मैं सुधरी हुई प्रोफ़ाइल से रिपोर्ट फिर से बना दूँगा।",
+    "schemes": []
+  }
+]

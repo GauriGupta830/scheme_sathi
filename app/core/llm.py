@@ -15,7 +15,7 @@ from . import config
 _API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
 
 
-def _generate(prompt: str, max_tokens: int = 512) -> Optional[str]:
+def _generate(prompt: str, max_tokens: int = 512, temperature: float = 0.4) -> Optional[str]:
     if not config.LLM_ENABLED:
         return None
     try:
@@ -24,7 +24,7 @@ def _generate(prompt: str, max_tokens: int = 512) -> Optional[str]:
         url = _API.format(model=config.GEMINI_MODEL, key=config.GEMINI_API_KEY)
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0.4, "maxOutputTokens": max_tokens},
+            "generationConfig": {"temperature": temperature, "maxOutputTokens": max_tokens},
         }
         with httpx.Client(timeout=12.0) as client:
             resp = client.post(url, json=payload)
@@ -80,6 +80,87 @@ def explain_doubt(doubt: str, question: dict, profile: dict, language: str) -> O
         f"Plain text, no markdown, no headers. Do not invent scheme rules beyond the explanation above."
     )
     return _generate(prompt, max_tokens=256)
+
+
+def _profile_line(profile: dict) -> str:
+    """Compact, human description of who we're talking to (for tone + relevance)."""
+    bits = []
+    if profile.get("name"):
+        bits.append(str(profile["name"]))
+    if profile.get("age"):
+        bits.append(f"{profile['age']} years")
+    if profile.get("gender"):
+        bits.append(str(profile["gender"]))
+    if profile.get("occupation"):
+        bits.append(str(profile["occupation"]).replace("_", " "))
+    if profile.get("area_type") or profile.get("state"):
+        bits.append(f"{profile.get('area_type', '')} {profile.get('state', '')}".strip())
+    if profile.get("annual_income") is not None:
+        bits.append(f"family income Rs {profile['annual_income']}/year")
+    if profile.get("category"):
+        bits.append(f"category {str(profile['category']).upper()}")
+    if profile.get("is_bpl") is not None:
+        bits.append("BPL household" if profile["is_bpl"] else "not BPL")
+    if profile.get("has_bank_account") is False:
+        bits.append("NO bank account")
+    return ", ".join(bits) or "unknown so far (intake just started)"
+
+
+def chat_answer(question: str, context: str, profile: dict, language: str,
+                pending_question: Optional[dict] = None,
+                report: Optional[dict] = None) -> Optional[str]:
+    """Conversational answer to ANY free-form user question, grounded in `context`.
+
+    `context` is retrieved by agents/knowledge.py (curated help articles + the
+    scheme dataset). The model is instructed to treat it as the only source of
+    facts — it supplies the warmth and the phrasing, never the eligibility
+    rules. Returns None with no key/network, and the caller then serves the
+    same curated passage verbatim, so behaviour degrades in tone only.
+    """
+    if not question.strip():
+        return None
+    lang_name = "Hindi (Devanagari script)" if language == "hi" else "English"
+
+    report_bit = ""
+    if report:
+        elig = [c["name_en"].split(" (")[0] for c in (report.get("eligible") or [])[:6]]
+        near = [c["name_en"].split(" (")[0] for c in (report.get("near_miss") or [])[:4]]
+        report_bit = (
+            f"\nTHEIR REPORT IS ALREADY GENERATED — eligible for {report.get('n_eligible')} schemes "
+            f"({', '.join(elig) or 'none'}); near-miss on {report.get('n_near_miss')} "
+            f"({', '.join(near) or 'none'})."
+        )
+
+    pending_bit = ""
+    if pending_question:
+        q_text = pending_question.get("text_hi" if language == "hi" else "text_en", "")
+        pending_bit = (
+            f"\nRIGHT AFTER YOUR ANSWER they will be re-asked this intake question, so do NOT "
+            f"repeat it yourself and do NOT ask a different question: \"{q_text}\""
+        )
+
+    prompt = (
+        "You are Scheme Saathi, a warm, patient Indian government-schemes assistant. You are "
+        "talking to an ordinary citizen — possibly a farmer, a first-time entrepreneur, a "
+        "student, or an NGO field worker helping someone. Many have never used a chatbot.\n\n"
+        f"WHO YOU ARE TALKING TO: {_profile_line(profile)}{report_bit}{pending_bit}\n\n"
+        "REFERENCE MATERIAL (the ONLY source of facts you may use):\n"
+        f"{context or '(nothing relevant was found in the knowledge base)'}\n\n"
+        f"THEIR MESSAGE: {question}\n\n"
+        "HOW TO REPLY:\n"
+        f"- Write in {lang_name}, like a helpful human on WhatsApp — not like a form or a manual.\n"
+        "- 40-110 words. Short paragraphs or simple dashes. Simple everyday words, no jargon.\n"
+        "- Answer THEIR actual question first, directly, then add the one next practical step "
+        "(where to go, what to carry, what it costs).\n"
+        "- Personalise using who they are, when it is genuinely relevant.\n"
+        "- Every fact — amounts, limits, documents, portals, processes — must come from the "
+        "reference material above. NEVER invent or guess a scheme rule, amount or deadline.\n"
+        "- If the reference material does not cover their question, say plainly that you are not "
+        "sure and point them to myscheme.gov.in or the nearest CSC / Jan Seva Kendra.\n"
+        "- No markdown headers, no bullet symbols other than a dash, at most one emoji.\n"
+        "- Do not end by asking them a question of your own."
+    )
+    return _generate(prompt, max_tokens=420, temperature=0.5)
 
 
 def answer_followup(question: str, profile: dict, report: dict, language: str) -> Optional[str]:

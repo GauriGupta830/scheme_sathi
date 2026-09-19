@@ -35,6 +35,12 @@ const S = {
     nearTitle: "Almost there — precise gap analysis",
     whyMatch: "WHY YOU QUALIFY", docs: "DOCUMENTS REQUIRED", gaps: "WHERE YOU FALL SHORT",
     tips: "HOW TO BECOME ELIGIBLE", apply: "Apply on official portal", match: "match",
+    checklistTitle: "Documents to collect — one combined checklist",
+    checklistSub: (n, m) => `${n} documents cover all ${m} of your matched schemes. Start from the top — the first ones are needed almost everywhere.`,
+    docAll: "needed for ALL your schemes",
+    docFor: (n) => `needed by ${n} scheme${n !== 1 ? "s" : ""}`,
+    docNear: "only for near-miss schemes",
+    docHow: "Don't have it?",
     neTitle: (n) => `Not eligible right now (${n}) — click to see reasons`,
     rulesVerified: (n) => `${n} criteria verified`,
     searchPh: "Search schemes, ministries, benefits…", all: "All",
@@ -61,6 +67,12 @@ const S = {
     nearTitle: "बस थोड़ा सा रह गया — सटीक गैप विश्लेषण",
     whyMatch: "आप क्यों पात्र हैं", docs: "ज़रूरी दस्तावेज़", gaps: "कहाँ कमी रह गई",
     tips: "पात्र कैसे बनें", apply: "आधिकारिक पोर्टल पर आवेदन करें", match: "मैच",
+    checklistTitle: "जुटाने वाले दस्तावेज़ — एक संयुक्त चेकलिस्ट",
+    checklistSub: (n, m) => `${n} दस्तावेज़ आपकी सभी ${m} मैच हुई योजनाओं को कवर करते हैं। ऊपर से शुरू कीजिए — पहले वाले लगभग हर जगह लगते हैं।`,
+    docAll: "आपकी सभी योजनाओं के लिए",
+    docFor: (n) => (n === 1 ? "1 योजना के लिए" : `${n} योजनाओं के लिए`),
+    docNear: "सिर्फ नियर-मिस योजनाओं के लिए",
+    docHow: "नहीं है?",
     neTitle: (n) => `अभी पात्र नहीं (${n}) — कारण देखने के लिए क्लिक करें`,
     rulesVerified: (n) => `${n} मानदंड सत्यापित`,
     searchPh: "योजना, मंत्रालय, लाभ खोजें…", all: "सभी",
@@ -406,6 +418,44 @@ function cardHtml(card, rank, near, delay) {
   </article>`;
 }
 
+/* KEY FEATURE 7 — consolidated required-documents checklist across all matches */
+function checklistHtml(report) {
+  const cl = report.documents_checklist;
+  if (!cl || !cl.items?.length) return "";
+  const hi = state.uiLang === "hi";
+  const nSchemes = (report.eligible?.length || 0) + (report.near_miss?.length || 0);
+
+  const rows = cl.items.map((d, i) => {
+    const label = hi ? d.label_hi : d.label_en;
+    const how = hi ? d.how_to_hi : d.how_to_en;
+    const tag = d.near_miss_only ? t().docNear : d.universal ? t().docAll : t().docFor(d.n_schemes);
+    const tagCls = d.near_miss_only ? "a" : d.universal ? "g" : "";
+    const schemeNames = d.schemes.map((s) => esc(hi ? s.name_hi : s.name_en)).join(" · ");
+    return `
+      <li class="doc-row rise" style="animation-delay:${Math.min(i, 12) * 35}ms">
+        <span class="doc-num">${i + 1}</span>
+        <div class="doc-main">
+          <div class="doc-line">
+            <span class="doc-name">${esc(label)}</span>
+            <span class="doc-tag ${tagCls}">${tag}</span>
+          </div>
+          <div class="doc-schemes" title="${schemeNames}">${schemeNames}</div>
+          ${how ? `<div class="doc-how"><b>${t().docHow}</b> ${esc(how)}</div>` : ""}
+        </div>
+      </li>`;
+  }).join("");
+
+  return `
+    <h4 class="sec-h rise" style="animation-delay:280ms">
+      <span class="marker b"></span>${t().checklistTitle}
+      <span class="count-chip b">${cl.n_documents}</span>
+    </h4>
+    <div class="card doc-checklist rise" style="animation-delay:300ms">
+      <p class="doc-sub">${t().checklistSub(cl.n_documents, nSchemes)}</p>
+      <ol class="doc-list">${rows}</ol>
+    </div>`;
+}
+
 function renderReport(report) {
   const lang = state.uiLang;
   const summary = report.summary_llm || (lang === "hi" ? report.summary_hi : report.summary_en);
@@ -451,8 +501,10 @@ function renderReport(report) {
       <h4 class="sec-h rise" style="animation-delay:260ms"><span class="marker a"></span>${t().nearTitle}<span class="count-chip a">${report.n_near_miss}</span></h4>
       <div>${nearHtml}</div>` : ""}
 
+    ${checklistHtml(report)}
+
     ${report.not_eligible?.length ? `
-      <details class="ne-list rise" style="animation-delay:300ms"><summary>${t().neTitle(report.not_eligible.length)}</summary><ul>${neItems}</ul></details>` : ""}
+      <details class="ne-list rise" style="animation-delay:340ms"><summary>${t().neTitle(report.not_eligible.length)}</summary><ul>${neItems}</ul></details>` : ""}
 
     <div class="rep-bottom">
       <button class="btn btn-primary" id="btn-print2">

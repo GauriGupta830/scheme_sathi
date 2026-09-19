@@ -23,4 +23,5 @@ class GraphState(TypedDict, total=False):
     ready_to_report: bool
     done: bool
     report: Optional[dict]
+    report_refreshed: bool
     next_qid: Optional[str]

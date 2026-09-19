@@ -5,6 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import HTMLResponse
 
+from ..engine.documents import checklist_summary
 from ..engine.matcher import load_schemes
 from ..graph.main_graph import HAS_LANGGRAPH, process_message, welcome_state
 from ..core import config
@@ -59,6 +60,10 @@ def chat(req: ChatRequest):
     session["done"] = bool(state.get("done", session["done"]))
     if state.get("report"):
         session["report"] = state["report"]
+    elif not session["done"]:
+        # the turn sent us back into intake (restart, or a correction that
+        # reopened a question) — the old report no longer describes the profile
+        session["report"] = None
     for m in state.get("bot_messages", []):
         session["history"].append({"sender": "bot", "text": m})
 
@@ -68,9 +73,12 @@ def chat(req: ChatRequest):
         step=state.get("step", 0),
         total_steps=state.get("total_steps", 0),
         done=session["done"],
-        # report goes out ONLY on the turn it is generated — follow-up chat
-        # answers must not force the UI back to the report view
-        report=state.get("report") if (state.get("report") and not had_report) else None,
+        # The report goes out on the turn it is generated (or REgenerated after a
+        # correction) — a plain follow-up answer must not yank the UI back to
+        # the report view, but a stale report must never be left on screen.
+        report=state.get("report") if (
+            state.get("report") and (not had_report or state.get("report_refreshed"))
+        ) else None,
         profile=session["profile"],
         language=session["profile"].get("language") or "en",
         input_type=state.get("input_type", "text"),
@@ -83,6 +91,20 @@ def get_report(session_id: str):
     if not session or not session.get("report"):
         raise HTTPException(status_code=404, detail="Report not found. Complete the questionnaire first.")
     return session["report"]
+
+
+@router.get("/api/report/{session_id}/documents")
+def get_documents_checklist(session_id: str):
+    """KEY FEATURE 7 — consolidated required-documents checklist for the session.
+
+    Also embedded in the report payload; exposed separately so an NGO tool or
+    a second screen can pull just the checklist.
+    """
+    session = get_session(session_id)
+    if not session or not session.get("report"):
+        raise HTTPException(status_code=404, detail="Report not found. Complete the questionnaire first.")
+    report = session["report"]
+    return report.get("documents_checklist") or checklist_summary(report)
 
 
 @router.get("/api/report/{session_id}/html", response_class=HTMLResponse)

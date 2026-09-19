@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ramesh",
+    "title_en": "Ramesh — small farmer, rural UP",
+    "title_hi": "रमेश — छोटा किसान, ग्रामीण उत्तर प्रदेश",
+    "blurb_en": "45, SC, BPL, 1.5 hectares of land. Runs fully in Hindi.",
+    "blurb_hi": "45 वर्ष, एससी, बीपीएल, 1.5 हेक्टेयर ज़मीन। पूरी बातचीत हिंदी में।",
+    "answers": {
+      "language": "हिंदी (Hindi)",
+      "name": "रमेश कुमार",
+      "age": "45",
+      "gender": "पुरुष",
+      "state": "उत्तर प्रदेश",
+      "area_type": "ग्रामीण (गाँव)",
+      "occupation": "🌾 किसान",
+      "annual_income": "₹1 – ₹2.5 लाख",
+      "category": "एससी",
+      "is_bpl": "हाँ",
+      "land_holding": "1 – 2 हे.",
+      "owns_pucca_house": "नहीं",
+      "has_bank_account": "हाँ",
+      "special": "इनमें से कोई नहीं"
+    },
+    "expected": {
+      "eligible": ["pm_kisan", "pmfby", "pm_kusum", "pmay_gramin", "pmjay", "stand_up_india"],
+      "near_miss": ["mudra", "apy"]
+    }
+  },
+  {
+    "id": "priya",
+    "title_en": "Priya — college student, urban Maharashtra",
+    "title_hi": "प्रिया — कॉलेज छात्रा, शहरी महाराष्ट्र",
+    "blurb_en": "20, OBC, 12th pass, family income ₹1.75 lakh.",
+    "blurb_hi": "20 वर्ष, ओबीसी, 12वीं पास, पारिवारिक आय ₹1.75 लाख।",
+    "answers": {
+      "language": "English",
+      "name": "Priya Sharma",
+      "age": "20",
+      "gender": "Female",
+      "state": "Maharashtra",
+      "area_type": "Urban (city/town)",
+      "occupation": "🎓 Student",
+      "education_level": "12th pass",
+      "annual_income": "₹1 – ₹2.5 lakh",
+      "category": "OBC",
+      "is_bpl": "No",
+      "owns_pucca_house": "Yes",
+      "has_bank_account": "Yes",
+      "special": "None of these"
+    },
+    "expected": {
+      "eligible": ["nsp", "postmatric_obc"],
+      "near_miss": ["pmjay"]
+    }
+  },
+  {
+    "id": "amit",
+    "title_en": "Amit — first-time entrepreneur, Delhi",
+    "title_hi": "अमित — पहली बार उद्यमी, दिल्ली",
+    "blurb_en": "28, General, graduate, service idea, income ₹3.75 lakh.",
+    "blurb_hi": "28 वर्ष, सामान्य वर्ग, स्नातक, सेवा क्षेत्र का आइडिया, आय ₹3.75 लाख।",
+    "answers": {
+      "language": "English",
+      "name": "Amit Verma",
+      "age": "28",
+      "gender": "Male",
+      "state": "Delhi",
+      "area_type": "Urban (city/town)",
+      "occupation": "🏢 Business owner / Startup",
+      "education_level": "Graduate",
+      "annual_income": "₹2.5 – ₹5 lakh",
+      "category": "General",
+      "business_age_years": "Just an idea / not started",
+      "business_sector": "💡 Services",
+      "owns_pucca_house": "No",
+      "has_bank_account": "Yes",
+      "special": "None of these"
+    },
+    "expected": {
+      "eligible": ["mudra", "pmegp", "cgtmse", "sisf"],
+      "near_miss": ["stand_up_india", "pmay_urban"]
+    }
+  },
+  {
+    "id": "sunita",
+    "title_en": "Sunita — homemaker, rural MP, no bank account",
+    "title_hi": "सुनीता — गृहिणी, ग्रामीण मध्य प्रदेश, बैंक खाता नहीं",
+    "blurb_en": "35, ST, BPL, daughter below 10, open to joining an SHG.",
+    "blurb_hi": "35 वर्ष, एसटी, बीपीएल, 10 साल से छोटी बेटी, SHG से जुड़ने को तैयार।",
+    "answers": {
+      "language": "हिंदी (Hindi)",
+      "name": "सुनीता बाई",
+      "age": "35",
+      "gender": "महिला",
+      "state": "मध्य प्रदेश",
+      "area_type": "ग्रामीण (गाँव)",
+      "occupation": "🏠 गृहिणी",
+      "annual_income": "₹1 लाख से कम",
+      "category": "एसटी",
+      "is_bpl": "हाँ",
+      "owns_pucca_house": "नहीं",
+      "has_bank_account": "नहीं",
+      "special": "1, 4"
+    },
+    "expected": {
+      "eligible": ["jandhan", "ujjwala", "nrlm", "pmay_gramin", "pmjay", "ssy"],
+      "near_miss": ["pmjjby", "pmsby", "apy"]
+    }
+  }
+]

@@ -515,3 +515,336 @@ def test_smalltalk_fillers():
     assert intake_mod.looks_like_smalltalk("bye bhai") == "bye"
     # fillers must not rescue non-smalltalk
     assert intake_mod.looks_like_smalltalk("bhai 2 lakh kamata hu") == ""
+
+
+# ---------------------------------------------------------------------------
+# Conversational layer — "talk to me like a person, not a form"
+# ---------------------------------------------------------------------------
+
+
+def test_knowledge_base_is_well_formed():
+    from app.agents.knowledge import load_knowledge
+    kb = load_knowledge()
+    assert len(kb) >= 20, "knowledge base should cover the common citizen doubts"
+    seen = set()
+    for a in kb:
+        for key in ("id", "topic_en", "topic_hi", "keywords", "answer_en", "answer_hi"):
+            assert a.get(key), f"knowledge article {a.get('id')} missing {key}"
+        assert a["id"] not in seen, f"duplicate knowledge id {a['id']}"
+        seen.add(a["id"])
+        # answers must be substantial, not one-liners
+        assert len(a["answer_en"]) > 200 and len(a["answer_hi"]) > 200, a["id"]
+
+
+@pytest.mark.parametrize("query,expected_id", [
+    ("BPL kya hai?", "bpl"),
+    ("mere paas aadhaar card nahi hai", "no_aadhaar"),
+    ("bank account nahi hai kya karu", "no_bank_account"),
+    ("jaati praman patra kaise banwaye", "caste_certificate"),
+    ("CSC kya hota hai", "csc_centre"),
+    ("koi dalal paisa mangta hai kya", "is_it_free"),
+    ("mera data safe hai kya", "privacy"),
+    ("khatauni kahan se milegi", "land_records"),
+    ("paisa nahi aaya abhi tak", "dbt_seeding"),
+    ("ghar banane ke liye kya scheme hai", "housing_basics"),
+    ("scholarship kaise milegi", "scholarship_basics"),
+    ("मेरे पास कोई दस्तावेज़ नहीं है", "no_documents_at_all"),
+])
+def test_knowledge_retrieval_finds_the_right_article(query, expected_id):
+    from app.agents.knowledge import search_knowledge
+    hits = search_knowledge(query, limit=3)
+    assert hits, f"no knowledge retrieved for {query!r}"
+    assert expected_id in [h["id"] for h in hits], (
+        f"{query!r} retrieved {[h['id'] for h in hits]}, expected {expected_id}"
+    )
+
+
+def test_offline_answers_are_real_answers_not_menus():
+    """No API key in CI — every answer below must still be genuinely useful."""
+    from app.agents.knowledge import compose_offline_answer
+    from app.engine.matcher import load_schemes
+    schemes = load_schemes()
+
+    ans = compose_offline_answer("mere paas aadhaar card nahi hai", "en", schemes)
+    assert ans and "Aadhaar Seva Kendra" in ans and "free" in ans.lower()
+
+    ans_hi = compose_offline_answer("आधार कार्ड नहीं है", "hi", schemes)
+    assert ans_hi and "आधार सेवा केंद्र" in ans_hi
+
+    # a scheme-specific question is answered from the scheme record
+    ans_scheme = compose_offline_answer("sukanya samriddhi me kitna interest hai", "en", schemes)
+    assert ans_scheme and "Sukanya" in ans_scheme and "₹" in ans_scheme
+
+
+def test_intent_classifier_routes_each_kind_of_turn():
+    from app.agents import conversation as convo
+    q = intake_mod.get_question("is_bpl")
+    profile = {"language": "en", "annual_income": 80000, "age": 40}
+
+    assert convo.classify("Yes", q, profile, False) == "answer"
+    assert convo.classify("skip", q, profile, False) == "skip"
+    assert convo.classify("thanks bhai", q, profile, False) == "smalltalk"
+    assert convo.classify("help", q, profile, False) == "help"
+    assert convo.classify("BPL kya hai?", q, profile, False) == "question"
+    assert convo.classify("mere paas aadhaar card nahi hai", q, profile, False) == "question"
+    assert convo.classify("actually meri income 2 lakh hai", q, profile, False) == "correction"
+    assert convo.classify("restart", q, profile, False) == "restart"
+
+
+def test_off_topic_question_mid_intake_answers_and_resumes():
+    """The headline fix: a real question mid-form gets a real answer, and the
+    pending question comes back untouched — no state lost, no parse error."""
+    from app.graph.main_graph import process_message
+
+    profile = {"language": "en", "name": "Ramesh", "age": 45, "gender": "male",
+               "state": "UP", "area_type": "rural", "occupation": "farmer"}
+    state = process_message(profile, "mere paas aadhaar card nahi hai, kya karu?",
+                            "annual_income", False, None)
+    blob = " ".join(state["bot_messages"])
+
+    assert "Aadhaar Seva Kendra" in blob                 # a genuine answer
+    assert "CSC" in blob and "free" in blob.lower()      # with actionable detail
+    assert state["next_qid"] == "annual_income"          # same question re-asked
+    assert "annual_income" not in profile                # nothing wrongly stored
+    assert state["quick_replies"]                        # its options still shown
+
+
+def test_question_about_current_field_uses_curated_help():
+    """'BPL kya hai?' while ON the BPL question keeps the question-specific
+    explanation rather than a generic knowledge article."""
+    from app.graph.main_graph import process_message
+
+    profile = {"language": "en", "annual_income": 80000, "age": 45}
+    state = process_message(profile, "BPL kya hai?", "is_bpl", False, None)
+    blob = " ".join(state["bot_messages"])
+    assert "Below Poverty Line" in blob and "RATION CARD" in blob.upper()
+    assert state["next_qid"] == "is_bpl"
+
+
+def test_user_can_skip_a_question():
+    from app.graph.main_graph import process_message
+
+    profile = {"language": "en", "annual_income": 80000, "age": 45, "occupation": "farmer"}
+    state = process_message(profile, "rehne do", "is_bpl", False, None)
+    assert state["next_qid"] != "is_bpl"                 # moved on
+    assert "is_bpl" not in profile                       # not answered
+    assert "is_bpl" in intake_mod.skipped_fields(profile)
+    # and a skipped question is never asked again
+    assert "is_bpl" not in intake_mod.pending_question_ids(profile)
+
+
+def test_user_can_correct_an_earlier_answer_mid_intake():
+    from app.graph.main_graph import process_message
+
+    profile = {"language": "en", "name": "Amit", "age": 28, "gender": "male",
+               "state": "Delhi", "area_type": "urban", "occupation": "business",
+               "education_level": "graduate", "annual_income": 375000}
+    state = process_message(profile, "actually meri income 2 lakh hai", "category", False, None)
+    assert profile["annual_income"] == 200000
+    blob = " ".join(state["bot_messages"])
+    assert "2,00,000" in blob                            # confirms in Indian format
+    assert state["next_qid"]                             # flow continues
+
+
+def test_correction_after_report_rebuilds_it():
+    """Correcting a fact post-report must regenerate the report, not just chat."""
+    TestClient = pytest.importorskip("fastapi.testclient", reason="no fastapi").TestClient
+    from app.main import app
+    client = TestClient(app)
+    sid = client.post("/api/demo/priya").json()["session_id"]
+
+    before = client.get(f"/api/report/{sid}").json()
+    r = client.post("/api/chat", json={
+        "session_id": sid, "message": "sorry meri category actually SC hai"
+    }).json()
+    after = client.get(f"/api/report/{sid}").json()
+
+    assert after["profile"]["category"] == "sc"
+    before_ids = {c["scheme_id"] for c in before["eligible"]}
+    after_ids = {c["scheme_id"] for c in after["eligible"]}
+    assert "postmatric_sc" in after_ids and "postmatric_sc" not in before_ids
+    assert "postmatric_obc" not in after_ids              # she is no longer OBC
+    assert r["messages"]
+
+
+def test_followup_answers_general_questions_not_just_the_menu():
+    """Post-report, an unrelated-but-real question must get a real answer."""
+    TestClient = pytest.importorskip("fastapi.testclient", reason="no fastapi").TestClient
+    from app.main import app
+    client = TestClient(app)
+    sid = client.post("/api/demo/amit").json()["session_id"]
+
+    r = client.post("/api/chat", json={"session_id": sid, "message": "CSC kya hota hai"}).json()
+    ans = " ".join(r["messages"])
+    assert "Common Service Centre" in ans or "Jan Seva Kendra" in ans
+    assert "report is ready" not in ans.lower()          # NOT the generic menu
+
+    r2 = client.post("/api/chat", json={"session_id": sid, "message": "koi dalal paisa mangta hai kya"}).json()
+    ans2 = " ".join(r2["messages"])
+    assert "FREE" in ans2.upper() and ("agent" in ans2.lower() or "middleman" in ans2.lower())
+
+
+def test_assistant_admits_when_it_does_not_know():
+    """Honesty guard: never invent a scheme rule for an unknown question."""
+    from app.agents.conversation import unknown_reply
+    from app.agents.knowledge import compose_offline_answer
+    from app.engine.matcher import load_schemes
+
+    assert compose_offline_answer("what is the ipl score today", "en", load_schemes()) is None
+    for lang in ("en", "hi"):
+        msg = unknown_reply(lang)
+        assert "myscheme.gov.in" in msg
+        assert ("don't have" in msg.lower() or "नहीं है" in msg)
+
+
+# ---------------------------------------------------------------------------
+# KEY FEATURE 7 (compulsory) — required-documents checklist
+# ---------------------------------------------------------------------------
+
+
+def test_every_scheme_ships_a_documents_list():
+    """The compulsory add-on at the data layer: documents are a scheme field."""
+    for s in load_schemes():
+        assert s.get("documents_en"), f"{s['id']} has no documents_en"
+        assert s.get("documents_hi"), f"{s['id']} has no documents_hi"
+        assert len(s["documents_en"]) >= 2, f"{s['id']} documents list is too thin"
+        assert len(s["documents_en"]) == len(s["documents_hi"]), (
+            f"{s['id']} EN/HI document lists are out of sync"
+        )
+
+
+def test_report_embeds_a_consolidated_checklist():
+    _, report, _, _ = _run("ramesh")
+    cl = report["documents_checklist"]
+    assert cl["n_documents"] > 0
+    keys = [d["key"] for d in cl["items"]]
+    assert "aadhaar" in keys and "bank" in keys
+    assert "land" in keys                                 # farmer-specific doc present
+    # the most widely needed document must be ranked first
+    assert cl["items"][0]["n_schemes"] >= cl["items"][-1]["n_schemes"]
+
+
+def test_checklist_deduplicates_and_attributes_documents():
+    _, report, _, _ = _run("sunita")
+    cl = report["documents_checklist"]
+    keys = [d["key"] for d in cl["items"]]
+    assert len(keys) == len(set(keys)), "the same document must appear only once"
+
+    aadhaar = next(d for d in cl["items"] if d["key"] == "aadhaar")
+    matched = len(report["eligible"]) + len(report["near_miss"])
+    assert aadhaar["n_schemes"] == matched and aadhaar["universal"]
+    # every attribution points at a real matched scheme
+    matched_ids = {c["scheme_id"] for c in report["eligible"] + report["near_miss"]}
+    for d in cl["items"]:
+        for s in d["schemes"]:
+            assert s["scheme_id"] in matched_ids
+
+
+def test_checklist_tells_you_how_to_get_a_missing_document():
+    _, report, _, _ = _run("sunita")
+    cl = report["documents_checklist"]
+    bank = next(d for d in cl["items"] if d["key"] == "bank")
+    assert "Jan Dhan" in bank["how_to_en"]                 # actionable, not just a name
+    assert "जन धन" in bank["how_to_hi"]
+    covered = [d for d in cl["items"] if d["how_to_en"]]
+    assert len(covered) >= 5, "most common documents should carry how-to guidance"
+
+
+def test_checklist_flags_near_miss_only_documents():
+    """Documents needed only by near-miss schemes are marked, so a user knows
+    what is optional right now."""
+    _, report, _, _ = _run("sunita")
+    cl = report["documents_checklist"]
+    near_ids = {c["scheme_id"] for c in report["near_miss"]}
+    for d in cl["items"]:
+        if d["near_miss_only"]:
+            assert all(s["scheme_id"] in near_ids for s in d["schemes"])
+    # and they are sorted to the bottom
+    flags = [d["near_miss_only"] for d in cl["items"]]
+    assert flags == sorted(flags), "near-miss-only documents must come last"
+
+
+def test_checklist_endpoint_and_chat_and_print_all_expose_it():
+    TestClient = pytest.importorskip("fastapi.testclient", reason="no fastapi").TestClient
+    from app.main import app
+    client = TestClient(app)
+    sid = client.post("/api/demo/ramesh").json()["session_id"]
+
+    # 1. dedicated API
+    cl = client.get(f"/api/report/{sid}/documents").json()
+    assert cl["n_documents"] > 0 and cl["items"][0]["label_en"]
+
+    # 2. in chat
+    r = client.post("/api/chat", json={"session_id": sid, "message": "documents"}).json()
+    ans = " ".join(r["messages"])
+    assert "आधार कार्ड" in ans or "Aadhaar" in ans
+    assert "📄" in ans
+
+    # 3. in the printable report
+    html = client.get(f"/api/report/{sid}/html?lang=hi").text
+    assert "doc-checklist" in html and "☐" in html         # tickable boxes
+    assert "आधार कार्ड" in html
+
+
+def test_user_can_restart_the_conversation_by_typing():
+    from app.graph.main_graph import process_message
+
+    profile = {"language": "hi", "name": "रमेश", "age": 45, "occupation": "farmer"}
+    state = process_message(profile, "shuru se karo", "annual_income", False, None)
+    assert profile.get("name") is None                    # wiped
+    assert profile.get("language") == "hi"                # language remembered
+    assert state["next_qid"] == "name"                    # back to question one
+
+
+def test_romanized_free_text_answers_are_understood():
+    """People type 'kisan' and 'gaon', they don't always tap the chip."""
+    assert intake_mod.parse_answer(intake_mod.get_question("occupation"), "kisan") == (True, "farmer")
+    assert intake_mod.parse_answer(intake_mod.get_question("area_type"), "gaon") == (True, "rural")
+    assert intake_mod.parse_answer(intake_mod.get_question("area_type"), "sheher") == (True, "urban")
+    assert intake_mod.parse_answer(intake_mod.get_question("gender"), "aurat") == (True, "female")
+    assert intake_mod.parse_answer(intake_mod.get_question("occupation"), "grihini") == (True, "homemaker")
+    # a guess that doesn't fit this question's options is rejected, not forced
+    assert intake_mod.parse_answer(intake_mod.get_question("area_type"), "kisan") == (False, None)
+
+
+def test_chip_labels_are_never_mistaken_for_doubts_or_chitchat():
+    """Regression: 'Willing to join a women's Self-Help Group' contains the word
+    'Help' and used to be routed to the help system instead of being stored."""
+    from app.agents import conversation as convo
+    from app.agents.prompts import QUESTIONS
+
+    profile = {"age": 30, "gender": "female", "area_type": "rural",
+               "occupation": "farmer", "annual_income": 80000, "name": "X", "language": "en"}
+    checked = 0
+    for q in QUESTIONS:
+        if q.get("ask_if") and not q["ask_if"](profile):
+            continue
+        for lang in ("en", "hi"):
+            for opt in intake_mod.render_options(q, lang, profile):
+                intent = convo.classify(str(opt["label"]), q, profile, False)
+                assert intent == "answer", (
+                    f"chip '{opt['label']}' on '{q['id']}' routed to '{intent}' instead of being answered"
+                )
+                checked += 1
+    assert checked > 50
+
+
+def test_rebuilt_report_is_pushed_to_the_client():
+    """Regression: after a correction the report is regenerated server-side, so
+    it must be sent down again — otherwise the UI keeps showing stale results."""
+    TestClient = pytest.importorskip("fastapi.testclient", reason="no fastapi").TestClient
+    from app.main import app
+    client = TestClient(app)
+    sid = client.post("/api/demo/priya").json()["session_id"]
+
+    # a plain follow-up must NOT resend the report (keeps the user in chat)
+    plain = client.post("/api/chat", json={"session_id": sid, "message": "apply kaise kare"}).json()
+    assert plain["report"] is None
+
+    # a correction that rebuilds it MUST resend it
+    fixed = client.post("/api/chat", json={
+        "session_id": sid, "message": "sorry meri category actually SC hai"
+    }).json()
+    assert fixed["report"] is not None
+    assert {c["scheme_id"] for c in fixed["report"]["eligible"]} >= {"postmatric_sc"}
+    assert fixed["report"]["documents_checklist"]["n_documents"] > 0

@@ -459,6 +459,11 @@ DONE_HI = (
 ERROR_EN = "Hmm, I didn't quite get that. 🤔 "
 ERROR_HI = "माफ़ कीजिए, मैं समझ नहीं पाया। 🤔 "
 
+# Shown after the assistant answers a mid-intake doubt, before re-asking —
+# so the user always knows the conversation picked up exactly where it left off.
+RESUME_EN = "— now, coming back to where we were 👇"
+RESUME_HI = "— चलिए, अब वहीं से आगे बढ़ते हैं 👇"
+
 PROFILE_NOTE_EN = {
     "farmer": "Since you're a farmer, I'll also check agriculture-specific schemes like PM-KISAN and crop insurance. 🌾",
     "student": "Since you're a student, I'll check all scholarships too. 🎓",
