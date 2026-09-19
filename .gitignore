@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+demo/*.mp4
+demo/*.png
+frontend/*.backup
